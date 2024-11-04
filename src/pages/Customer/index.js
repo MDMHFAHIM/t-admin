@@ -52,6 +52,7 @@ function Customer() {
                                             <tr>
                                                 <th>Name</th>
                                                 <th>Email</th>
+                                                <th>Password</th>
                                                 <th>Country</th>
                                                 <th>State</th>
                                                 <th>Zone</th>
@@ -66,6 +67,7 @@ function Customer() {
                                                 <tr key={d.id}>
                                                     <td className="text-bold-500">{d.name}</td>
                                                     <td>{d.email}</td>
+                                                    <td>{d.password}</td>
                                                     <td>{d.country}</td>
                                                     <td>{d.state}</td>
                                                     <td>{d.zone}</td>

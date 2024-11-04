@@ -95,6 +95,12 @@ function CustomerAdd() {
                                                     </div>
                                                     <div className="col-12">
                                                         <div className="form-group">
+                                                            <label for="email-id-vertical">Password</label>
+                                                            <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.password} name="password" onChange={handleChange} placeholder="Password" />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-12">
+                                                        <div className="form-group">
                                                             <label for="email-id-vertical">Country</label>
                                                             <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.country} name="country" onChange={handleChange} placeholder="Country" />
                                                         </div>
