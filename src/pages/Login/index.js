@@ -29,7 +29,7 @@ function Login() {
             <div className="text-center mb-5">
                 <img src="./assets_admin/hospital-logo.svg" height="48" className='mb-4' />
                 <h3>Sign In</h3>
-                <p>Please sign in to continue to HMS.</p>
+                <p>Please sign in to continue to Melody.</p>
             </div>
             <form onSubmit={handleSubmit}>
                 <div className="form-group position-relative has-icon-left">
