@@ -175,6 +175,14 @@ function FlightAdd() {
                                                             <label for="email-id-vertical">Baggage_Allowance</label>
                                                             <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.baggage_allowance} name="baggage_allowance" onChange={handleChange} placeholder="Baggage_Allowance" />
 
+                                                            <div className="col-12">
+                                                                <div className="form-group">
+                                                                    <label for="email-id-vertical">Fare</label>
+                                                                    <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.fare} name="fare" onChange={handleChange} placeholder="Fare" />
+                                                                </div>
+                                                            </div>
+
+
                                                             <div className="col-12 d-flex justify-content-end">
                                                                 <button type="submit" className="btn btn-primary mr-1 mb-1">Submit</button>
                                                                 <button type="reset" className="btn btn-light-secondary mr-1 mb-1">Reset</button>

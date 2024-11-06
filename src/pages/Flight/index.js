@@ -50,7 +50,7 @@ function Flight() {
                                     <table className="table table-bordered mb-0">
                                         <thead>
                                             <tr>
-                                                <th>Airline_Id</th>
+                                                <th>Airline</th>
                                                 <th>Image</th>
                                                 <th>Class</th>
                                                 <th>Trip_Type</th>
@@ -61,6 +61,7 @@ function Flight() {
                                                 <th>Transit_Time</th>
                                                 <th>Is_Complementary_Food</th>
                                                 <th>Baggage_Allowance</th>
+                                                <th>Fare</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -86,6 +87,7 @@ function Flight() {
                                                     <td>{d.transit_time}</td>
                                                     <td>{d.is_complementary_food}</td>
                                                     <td>{d.baggage_allowance}</td>
+                                                    <td>{d.fare}</td>
 
                                                     <td>
                                                         <Link to={`/flight/edit/${d.id}`} className='btn btn-secondary' >Edit</Link>

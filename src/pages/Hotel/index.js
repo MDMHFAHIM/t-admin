@@ -50,9 +50,9 @@ function Hotel() {
                                     <table className="table table-bordered mb-0">
                                         <thead>
                                             <tr>
-                                                <th>Zone_id</th>
-                                                <th>Catagory_Id</th>
-                                                <th>Roomtype_Id</th>
+                                                <th>Zone</th>
+                                                <th>Catagory</th>
+                                                <th>Roomtype</th>
                                                 <th>Image</th>
                                                 <th>Hotel_Name</th>
                                                 <th>Rating</th>
@@ -63,6 +63,7 @@ function Hotel() {
                                                 <th>Facilities</th>
                                                 <th>Checkin</th>
                                                 <th>Checkout</th>
+                                                <th>Fare</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -90,6 +91,7 @@ function Hotel() {
                                                     <td>{d.facilities}</td>
                                                     <td>{d.checkin}</td>
                                                     <td>{d.checkout}</td>
+                                                    <td>{d.fare}</td>
 
                                                     <td>
                                                         <Link to={`/hotel/edit/${d.id}`} className='btn btn-secondary' >Edit</Link>

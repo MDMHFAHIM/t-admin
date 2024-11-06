@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 
 function PackageAdd() {
-    const [inputs, setInputs] = useState({ id: '', name: '', duration: '', number_of_guest: '', location: '', });
+    const [inputs, setInputs] = useState({ id: '', name: '', image: '', duration: '', number_of_guest: '', location: '', });
 
 
     const [selectedfile, setSelectedFile] = useState([]);//for image 
@@ -98,6 +98,13 @@ function PackageAdd() {
                                                             <input type="text" id="first-name-vertical" className="form-control" defaultValue={inputs.name} name="name" onChange={handleChange} />
                                                         </div>
                                                     </div>
+
+                                                    <div className="col-12">
+                                                        <div className="form-group">
+                                                            <label for="email-id-vertical">Image</label>
+                                                            <input type="file" id="email-id-vertical" className="form-control" multiple defaultValue={inputs.image} name="image" onChange={handelFile} placeholder="Image" />
+                                                        </div>
+                                                    </div>
                                                     <div className="col-12">
                                                         <div className="form-group">
                                                             <label for="email-id-vertical">Duration</label>
@@ -116,6 +123,13 @@ function PackageAdd() {
                                                         <div className="form-group">
                                                             <label for="email-id-vertical">Location</label>
                                                             <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.location} name="location" onChange={handleChange} />
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="col-12">
+                                                        <div className="form-group">
+                                                            <label for="email-id-vertical">Fare</label>
+                                                            <input type="time" id="email-id-vertical" className="form-control" defaultValue={inputs.fare} name="fare" onChange={handleChange} placeholder="Fare" />
                                                         </div>
                                                     </div>
 

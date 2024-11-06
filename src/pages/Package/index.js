@@ -51,6 +51,7 @@ function Package() {
                                         <thead>
                                             <tr>
                                                 <th>Name</th>
+                                                <th>IMAGE</th>
                                                 <th>Duration</th>
                                                 <th>Number_Of_Guest</th>
                                                 <th>Location</th>
@@ -61,6 +62,13 @@ function Package() {
                                             {data && data.map((d, key) =>
                                                 <tr key={d.id}>
                                                     <td className="text-bold-500">{d.name}</td>
+                                                    <td>
+                                                        {
+                                                            d?.image?.split(',').map((src, i) => (
+                                                                <img src={`${process.env.REACT_APP_BACKEND_URL}/package/${src}`} alt="package" />
+                                                            ))
+                                                        }
+                                                    </td>
                                                     <td>{d.duration}</td>
                                                     <td>{d.number_of_guest}</td>
                                                     <td>{d.location}</td>

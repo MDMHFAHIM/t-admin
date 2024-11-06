@@ -72,7 +72,7 @@ function Hotel_BookingAdd() {
                 <div className="page-title">
                     <div className="row">
                         <div className="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Add New Hotel</h3>
+                            <h3>Add New Hotel_Booking</h3>
                         </div>
                         <div className="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" className='breadcrumb-header'>

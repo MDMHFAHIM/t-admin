@@ -50,8 +50,8 @@ function Flight_Booking() {
                                     <table className="table table-bordered mb-0">
                                         <thead>
                                             <tr>
-                                                <th>Customer_Id</th>
-                                                <th>Flight_Id</th>
+                                                <th>Customer</th>
+                                                <th>Flight</th>
                                                 <th>Number_of_seat</th>
                                                 <th>Check_In_Date</th>
                                                 <th>Check_Out_Date</th>

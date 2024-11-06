@@ -50,7 +50,7 @@ function State() {
                                     <table className="table table-bordered mb-0">
                                         <thead>
                                             <tr>
-                                                <th>Country_Id</th>
+                                                <th>Country</th>
                                                 <th>Name</th>
                                                 <th>Action</th>
                                             </tr>

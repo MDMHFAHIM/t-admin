@@ -6,9 +6,9 @@ import { useParams } from "react-router-dom";
 
 function SubscriptionAdd() {
     const [inputs, setInputs] = useState({
-        id: '', image: '', name: '', email: '', zone_id: '', address: '', contact: '', alt_contact: '',
+        id: '', image: '', customer_id: '', email: '', address: '', contact: '', alt_contact: '',
     });
-    const [zone, setZone] = useState([]);
+    const [customer, setCustomer] = useState([]);
     const [selectedfile, setSelectedFile] = useState([]);//for image 
 
     const navigate = useNavigate();
@@ -19,8 +19,8 @@ function SubscriptionAdd() {
         setInputs(response.data.data);
     }
     const getRelational = async (e) => {
-        let zoneres = await axios.get(`/zone`)
-        setZone(zoneres.data.data);
+        let customeres = await axios.get(`/customer`)
+        setCustomer(customeres.data.data);
 
     }
 
@@ -104,20 +104,15 @@ function SubscriptionAdd() {
                                                     </div>
                                                     <div className="col-12">
                                                         <div className="form-group">
-                                                            <label for="first-name-vertical">Name</label>
-                                                            <input type="text" id="first-name-vertical" className="form-control" defaultValue={inputs.name} name="name" onChange={handleChange} placeholder="Full Name" />
+                                                            <label for="email-id-vertical">Customer</label>
+                                                            <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.customer_id} name="customer_id" onChange={handleChange} placeholder="Customer" />
                                                         </div>
                                                     </div>
+
                                                     <div className="col-12">
                                                         <div className="form-group">
                                                             <label for="email-id-vertical">Email</label>
                                                             <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.email} name="email" onChange={handleChange} placeholder="Email" />
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-12">
-                                                        <div className="form-group">
-                                                            <label for="email-id-vertical">Zone_Id</label>
-                                                            <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.zone_id} name="zone_id" onChange={handleChange} placeholder="Zone_Id" />
                                                         </div>
                                                     </div>
 

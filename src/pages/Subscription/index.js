@@ -51,9 +51,8 @@ function Subscription() {
                                         <thead>
                                             <tr>
                                                 <th>Image</th>
-                                                <th>Name</th>
+                                                <th>Customer</th>
                                                 <th>Email</th>
-                                                <th>Zone_Id</th>
                                                 <th>Address</th>
                                                 <th>Contact</th>
                                                 <th>Alt_Contact</th>
@@ -72,9 +71,8 @@ function Subscription() {
 
 
                                                     </td>
-                                                    <td className="text-bold-500">{d.name}</td>
+                                                    <td className="text-bold-500">{d.customer?.name}</td>
                                                     <td>{d.email}</td>
-                                                    <td>{d.zone?.name}</td>
                                                     <td>{d.address}</td>
                                                     <td>{d.contact}</td>
                                                     <td>{d.alt_contact}</td>
