@@ -66,7 +66,7 @@ function Hotel() {
                                             {data && data.map((d, key) =>
                                                 <tr key={d.id}>
                                                     <td>{d.customer?.name}</td>
-                                                    <td>{d.hotel?.name}</td>
+                                                    <td>{d.hotel?.hotel_name}</td>
                                                     <td>{d.roomtype?.bedtype}</td>
                                                     <td>{d.number_of_room}</td>
                                                     <td>{d.number_of_guest_adult}</td>

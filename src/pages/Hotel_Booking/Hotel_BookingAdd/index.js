@@ -11,6 +11,7 @@ function Hotel_BookingAdd() {
     const [customer, setCustomer] = useState([]);
     const [hotel, setHotel] = useState([]);
     const [roomtype, setRoomtype] = useState([]);
+    const [roomfare, setRoomfare] = useState([]);
 
     const navigate = useNavigate();
     const { id } = useParams();
@@ -19,13 +20,35 @@ function Hotel_BookingAdd() {
         let response = await axios.get(`/hotel_booking/${id}`);
         setInputs(response.data.data);
     }
+
     const getRelational = async (e) => {
         let zoneres = await axios.get(`/customer`)
         setCustomer(zoneres.data.data);
         let catagories = await axios.get(`/hotel`)
         setHotel(catagories.data.data);
-        let roomtyperes = await axios.get(`/roomtype`)
+    }
+
+    const getRoomType= async (e) => {
+        let roomtyperes = await axios.get(`/roomtype?hotel_id=${e.target.value}`)
         setRoomtype(roomtyperes.data.data);
+    }
+
+    const getRoomFare= async (e) => {
+        let r = await axios.get(`/roomtype/${e.target.value}`)
+        setRoomfare(r.data.data?.roomfare);
+    }
+
+    const calRoomFare= async (e) => {
+        let number_of_room=document.getElementById('number_of_room').value
+        let check_in_date=document.getElementById('check_in_date').value
+        let check_out_date=document.getElementById('check_out_date').value
+        var date1 = new Date(check_in_date);
+        var date2 = new Date(check_out_date);
+        var diff = new Date(date2.getTime() - date1.getTime());
+        let numberofday=diff.getUTCDate() - 1;
+
+        let totalfare= parseFloat(roomfare)* (parseFloat(number_of_room) * numberofday);
+        setInputs(values => ({ ...values, ['total_amount']: totalfare }));
     }
 
     useEffect(() => {
@@ -45,7 +68,6 @@ function Hotel_BookingAdd() {
         e.preventDefault();
 
         const formData = new FormData();
-
 
         for (const property in inputs) {
             formData.append(property, inputs[property])
@@ -111,7 +133,7 @@ function Hotel_BookingAdd() {
                                                         <div className="form-group">
                                                             <label for="email-id-vertical">Hotel</label>
                                                             {hotel.length > 0 &&
-                                                                <select className="form-control" id="hotel_id" name='hotel_id' defaultValue={inputs.hotel_id} onChange={handleChange}>
+                                                                <select className="form-control" id="hotel_id" name='hotel_id' defaultValue={inputs.hotel_id} onChange={e => { handleChange(e); getRoomType(e)}}>
                                                                     <option value="">Select Hotel</option>
                                                                     {hotel.map((d, key) =>
                                                                         <option value={d.id}>{d.hotel_name}</option>
@@ -125,7 +147,7 @@ function Hotel_BookingAdd() {
                                                         <div className="form-group">
                                                             <label for="email-id-vertical">Roomtype</label>
                                                             {roomtype.length > 0 &&
-                                                                <select className="form-control" id="roomtype_id" name='roomtype_id' defaultValue={inputs.roomtype_id} onChange={handleChange}>
+                                                                <select className="form-control" id="roomtype_id" name='roomtype_id' defaultValue={inputs.roomtype_id} onChange={e => { handleChange(e); getRoomFare(e)}}>
                                                                     <option value="">Select Roomtype</option>
                                                                     {roomtype.map((d, key) =>
                                                                         <option value={d.id}>{d.bedtype}</option>
@@ -137,8 +159,8 @@ function Hotel_BookingAdd() {
 
                                                     <div className="col-12">
                                                         <div className="form-group">
-                                                            <label for="email-id-vertical">number_of_room</label>
-                                                            <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.number_of_room} name="number_of_room" onChange={handleChange} placeholder="number_of_room" />
+                                                            <label for="number_of_room">number_of_room</label>
+                                                            <input type="text" id="number_of_room" className="form-control" defaultValue={inputs.number_of_room} name="number_of_room" onChange={e => { handleChange(e); calRoomFare(e)}} placeholder="number_of_room" />
                                                         </div>
                                                     </div>
 
@@ -158,22 +180,22 @@ function Hotel_BookingAdd() {
 
                                                     <div className="col-12">
                                                         <div className="form-group">
-                                                            <label for="email-id-vertical">Check_In_Date</label>
-                                                            <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.check_in_date} name="check_in_date" onChange={handleChange} placeholder="Check_In_Date" />
+                                                            <label for="check_in_date">Check_In_Date</label>
+                                                            <input type="date" id="check_in_date" className="form-control" defaultValue={inputs.check_in_date} name="check_in_date" onChange={e => { handleChange(e); calRoomFare(e)}} placeholder="Check_In_Date" />
                                                         </div>
                                                     </div>
 
                                                     <div className="col-12">
                                                         <div className="form-group">
-                                                            <label for="email-id-vertical">Check_Out_Date</label>
-                                                            <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.check_out_date} name="check_out_date" onChange={handleChange} placeholder="Check_Out_Date" />
+                                                            <label for="check_out_date">Check_Out_Date</label>
+                                                            <input type="date" id="check_out_date" className="form-control" defaultValue={inputs.check_out_date} name="check_out_date" onChange={e => { handleChange(e); calRoomFare(e)}} placeholder="Check_Out_Date" />
                                                         </div>
                                                     </div>
 
                                                     <div className="col-12">
                                                         <div className="form-group">
                                                             <label for="email-id-vertical">Total_Amount</label>
-                                                            <input type="time" id="email-id-vertical" className="form-control" defaultValue={inputs.total_amount} name="total_amount" onChange={handleChange} placeholder="Total_Amount" />
+                                                            <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.total_amount} name="total_amount" onChange={handleChange} placeholder="Total_Amount" />
                                                         </div>
                                                     </div>
                                                     <div className="col-12 d-flex justify-content-end">
