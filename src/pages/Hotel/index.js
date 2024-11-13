@@ -91,7 +91,7 @@ function Hotel() {
                                                     <td>{d.facilities}</td>
                                                     <td>{d.checkin}</td>
                                                     <td>{d.checkout}</td>
-                                                    <td>{d.fare}</td>
+                                                    <td>{d.roomtype?.roomfare}</td>
 
                                                     <td>
                                                         <Link to={`/hotel/edit/${d.id}`} className='btn btn-secondary' >Edit</Link>

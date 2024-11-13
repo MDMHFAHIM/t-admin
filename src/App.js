@@ -15,6 +15,8 @@ import Hotel_Booking from './pages/Hotel_Booking';
 import Hotel_BookingAdd from './pages/Hotel_Booking/Hotel_BookingAdd';
 import Flight from './pages/Flight';
 import FlightAdd from './pages/Flight/FlightAdd';
+import FlightPrice from './pages/FlightPrice';
+import FlightPriceAdd from './pages/FlightPrice/FlightPriceAdd';
 import Flight_Booking from './pages/Flight_Booking';
 import Flight_BookingAdd from './pages/Flight_Booking/Flight_BookingAdd';
 import Transport from './pages/Transport';
@@ -140,6 +142,21 @@ function App() {
         <Route path={"/flight/edit/:id"} element={
           <Protected isSignedIn={isSignedIn} >
             <FlightAdd />
+          </Protected>
+        } />
+        <Route path={"/flightprice"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <FlightPrice />
+          </Protected>
+        } />
+        <Route path={"/flightprice/add"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <FlightPriceAdd />
+          </Protected>
+        } />
+        <Route path={"/flightprice/edit/:id"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <FlightPriceAdd />
           </Protected>
         } />
         <Route path={"/flight_booking"} element={

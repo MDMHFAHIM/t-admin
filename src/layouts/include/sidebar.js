@@ -167,6 +167,14 @@ function Sidebar() {
 						<span className="menu-title">Vehicle</span>
 					</Link>
 				</li>
+
+				<li className="nav-item">
+					<Link to={"/flightprice"} className="nav-link" >
+						<i className="fa fa-plane-departure menu-icon"></i>
+						<span className="menu-title">FlightPrice</span>
+					</Link>
+				</li>
+
 			</ul>
 		</nav>
 

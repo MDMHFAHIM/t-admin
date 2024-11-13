@@ -78,10 +78,10 @@ function Flight() {
 
 
                                                     </td>
-                                                    <td>{d.class}</td>
+                                                    <td>{d.airline?.class}</td>
                                                     <td>{d.trip_type}</td>
-                                                    <td>{d.departure_place}</td>
-                                                    <td>{d.arrival_place}</td>
+                                                    <td>{d.airline?.from}</td>
+                                                    <td>{d.airline?.to}</td>
                                                     <td>{d.departure_time}</td>
                                                     <td>{d.arrival_time}</td>
                                                     <td>{d.transit_time}</td>
