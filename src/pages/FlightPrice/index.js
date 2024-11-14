@@ -52,6 +52,7 @@ function FlightPrice() {
                                             <tr>
                                                 <th>Flight</th>
                                                 <th>Class</th>
+                                                <th>Trip Type</th>
                                                 <th>Airfare</th>
                                                 <th>Action</th>
                                             </tr>
@@ -61,6 +62,7 @@ function FlightPrice() {
                                                 <tr key={d.id}>
                                                     <td>{d.flight?.airline?.name}</td>
                                                     <td>{d.class}</td>
+                                                    <td>{d.trip_type}</td>
                                                     <td>{d.airfare}</td>
 
                                                     <td>

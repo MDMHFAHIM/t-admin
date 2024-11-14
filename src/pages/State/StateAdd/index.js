@@ -91,7 +91,7 @@ function StateAdd() {
                                                 <div className="row">
                                                     <div className="col-12">
                                                         <div className="form-group">
-                                                            <label for="email-id-vertical">Country_Id</label>
+                                                            <label for="email-id-vertical">Country</label>
                                                             {country.length > 0 &&
                                                                 <select className="form-control" id="country_id" name='country_id' defaultValue={inputs.country_id} onChange={handleChange}>
                                                                     <option value="">Select Country</option>

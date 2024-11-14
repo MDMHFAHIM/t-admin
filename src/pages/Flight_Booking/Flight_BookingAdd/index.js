@@ -6,11 +6,12 @@ import { useParams } from "react-router-dom";
 
 function Flight_BookingAdd() {
     const [inputs, setInputs] = useState({
-        id: '', customer_id: '', flight_id: '', number_of_seat: '', check_in_date: '', check_out_date: '', total_amount: '',
+        id: '', customer_id: '', zone_id: '', flight_id: '', number_of_seat: '', check_in_date: '', check_out_date: '', total_amount: '',
     });
 
     const [customer, setCustomer] = useState([]);
     const [flight, setFlight] = useState([]);
+    const [zone, setZone] = useState([]);
 
     const navigate = useNavigate();
     const { id } = useParams();
@@ -22,8 +23,12 @@ function Flight_BookingAdd() {
     const getRelational = async (e) => {
         let customerres = await axios.get(`/customer`)
         setCustomer(customerres.data.data);
+
         let flightres = await axios.get(`/flight`)
         setFlight(flightres.data.data);
+        
+        let zoneres = await axios.get(`/zone`)
+        setZone(zoneres.data.data);
 
     }
 
@@ -76,7 +81,7 @@ function Flight_BookingAdd() {
                         <div className="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" className='breadcrumb-header'>
                                 <ol className="breadcrumb">
-                                    <li className="breadcrumb-item"><a href="index.html">Flight_Booking</a></li>
+                                    <li className="breadcrumb-item"><a href="index.html">Flight Booking</a></li>
                                     <li className="breadcrumb-item active" aria-current="page">Add New</li>
                                 </ol>
                             </nav>
@@ -95,7 +100,7 @@ function Flight_BookingAdd() {
                                                 <div className="row">
                                                     <div className="col-12">
                                                         <div className="form-group">
-                                                            <label for="first-name-vertical">Customer_Id</label>
+                                                            <label for="first-name-vertical">Customer</label>
                                                             {customer.length > 0 &&
                                                                 <select className="form-control" id="customer_id" name='customer_id' defaultValue={inputs.customer_id} onChange={handleChange}>
                                                                     <option value="">Select Customer</option>
@@ -106,9 +111,38 @@ function Flight_BookingAdd() {
                                                             }
                                                         </div>
                                                     </div>
+
                                                     <div className="col-12">
                                                         <div className="form-group">
-                                                            <label for="email-id-vertical">Flight_Id</label>
+                                                            <label for="email-id-vertical">From</label>
+                                                            {zone.length > 0 &&
+                                                                <select className="form-control" id="zone_id" name='zone_id' defaultValue={inputs.zone_id} onChange={handleChange}>
+                                                                    <option value="">Select Departure</option>
+                                                                    {zone.map((d, key) =>
+                                                                        <option value={d.id}>{d.name}</option>
+                                                                    )}
+                                                                </select>
+                                                            }
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="col-12">
+                                                        <div className="form-group">
+                                                            <label for="email-id-vertical">To</label>
+                                                            {zone.length > 0 &&
+                                                                <select className="form-control" id="zone_id" name='zone_id' defaultValue={inputs.zone_id} onChange={handleChange}>
+                                                                    <option value="">Select Arrival</option>
+                                                                    {zone.map((d, key) =>
+                                                                        <option value={d.id}>{d.name}</option>
+                                                                    )}
+                                                                </select>
+                                                            }
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="col-12">
+                                                        <div className="form-group">
+                                                            <label for="email-id-vertical">Flight</label>
                                                             {flight.length > 0 &&
                                                                 <select className="form-control" id="flight_id" name='flight_id' defaultValue={inputs.flight_id} onChange={handleChange}>
                                                                     <option value="">Select Flight</option>
@@ -122,26 +156,26 @@ function Flight_BookingAdd() {
 
                                                     <div className="col-12">
                                                         <div className="form-group">
-                                                            <label for="email-id-vertical">Number_of_seat</label>
-                                                            <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.number_of_seat} name="number_of_seat" onChange={handleChange} placeholder="Number_of_seat" />
+                                                            <label for="email-id-vertical">Number Of Seat</label>
+                                                            <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.number_of_seat} name="number_of_seat" onChange={handleChange} placeholder="Number Of Seat" />
                                                         </div>
                                                     </div>
                                                     <div className="col-12">
                                                         <div className="form-group">
-                                                            <label for="email-id-vertical">Check_In_Date</label>
-                                                            <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.check_in_date} name="check_in_date" onChange={handleChange} placeholder="Check_In_Date" />
+                                                            <label for="email-id-vertical">Check In Date</label>
+                                                            <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.check_in_date} name="check_in_date" onChange={handleChange} placeholder="Check In Date" />
                                                         </div>
                                                     </div>
                                                     <div className="col-12">
                                                         <div className="form-group">
                                                             <label for="email-id-vertical">Check_Out_Date</label>
-                                                            <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.check_out_date} name="check_out_date" onChange={handleChange} placeholder="Check_Out_Date" />
+                                                            <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.check_out_date} name="check_out_date" onChange={handleChange} placeholder="Check Out Date" />
                                                         </div>
                                                     </div>
                                                     <div className="col-12">
                                                         <div className="form-group">
-                                                            <label for="email-id-vertical">Total_Amount</label>
-                                                            <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.total_amount} name="total_amount" onChange={handleChange} placeholder="Total_Amount" />
+                                                            <label for="email-id-vertical">Total Amount</label>
+                                                            <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.total_amount} name="total_amount" onChange={handleChange} placeholder="Total Amount" />
                                                         </div>
                                                     </div>
                                                 </div>

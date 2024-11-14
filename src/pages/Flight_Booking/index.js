@@ -25,7 +25,7 @@ function Flight_Booking() {
                 <div className="page-title">
                     <div className="row">
                         <div className="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Flight_Booking</h3>
+                            <h3>Flight Booking</h3>
                         </div>
                         <div className="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" className='breadcrumb-header'>
@@ -42,7 +42,7 @@ function Flight_Booking() {
                     <div className="col-12">
                         <div className="card">
                             <div className="card-header">
-                                <h4 className="card-title">All Flight_Booking</h4>
+                                <h4 className="card-title">All Flight Booking</h4>
                                 <Link to={'/flight_booking/add'} className='btn btn-primary float-right' >Add New</Link>
                             </div>
                             <div className="card-content">
@@ -51,11 +51,13 @@ function Flight_Booking() {
                                         <thead>
                                             <tr>
                                                 <th>Customer</th>
+                                                <th>From</th>
+                                                <th>To</th>
                                                 <th>Flight</th>
-                                                <th>Number_of_seat</th>
-                                                <th>Check_In_Date</th>
-                                                <th>Check_Out_Date</th>
-                                                <th>Total_Amount</th>
+                                                <th>Number Of Seat</th>
+                                                <th>Check In Date</th>
+                                                <th>Check Out Date</th>
+                                                <th>Total Amount</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -63,6 +65,8 @@ function Flight_Booking() {
                                             {data && data.map((d, key) =>
                                                 <tr key={d.id}>
                                                     <td>{d.customer?.name}</td>
+                                                    <td>{d.zone?.name}</td>
+                                                    <td>{d.zone?.name}</td>
                                                     <td>{d.flight?.name}</td>
                                                     <td>{d.number_of_seat}</td>
                                                     <td>{d.check_in_date}</td>

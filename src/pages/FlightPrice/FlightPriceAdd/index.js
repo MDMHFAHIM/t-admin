@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import axios from '../../../components/axios';
 import AdminLayout from '../../../layouts/AdminLayout';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 
-function flightpriceAdd() {
+function FlightpriceAdd() {
     const [inputs, setInputs] = useState({
-        id: '', flight_id: '', class: '', airfare: '',
+        id: '', flight_id: '', class: '', trip_type: '', airfare: '',
 
     });
     const [flight, setFlight] = useState([]);
@@ -90,12 +90,12 @@ function flightpriceAdd() {
                                                 <div className="row">
                                                     <div className="col-12">
                                                         <div className="form-group">
-                                                            <label for="email-id-vertical">Hotel</label>
+                                                            <label for="email-id-vertical">Flight</label>
                                                             {flight.length > 0 &&
                                                                 <select className="form-control" id="hotel_id" name='hotel_id' defaultValue={inputs.hotel_id} onChange={handleChange}>
                                                                     <option value="">Select Flight</option>
                                                                     {flight.map((d, key) =>
-                                                                        <option value={d.id}>{d.airline.name}</option>
+                                                                        <option value={d.id}>{d?.flight?.airline.name}</option>
                                                                     )}
                                                                 </select>
                                                             }
@@ -105,6 +105,13 @@ function flightpriceAdd() {
                                                         <div className="form-group">
                                                             <label for="email-id-vertical">Class</label>
                                                             <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.qty} name="qty" onChange={handleChange} placeholder="Class" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="col-12">
+                                                        <div className="form-group">
+                                                            <label for="email-id-vertical">trip type</label>
+                                                            <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.trip_type} name="trip_type" onChange={handleChange} placeholder="trip type" />
                                                         </div>
                                                     </div>
                                                     <div className="col-12">
@@ -133,4 +140,4 @@ function flightpriceAdd() {
     )
 }
 
-export default flightpriceAdd
+export default FlightpriceAdd

@@ -53,14 +53,14 @@ function Flight() {
                                                 <th>Airline</th>
                                                 <th>Image</th>
                                                 <th>Class</th>
-                                                <th>Trip_Type</th>
-                                                <th>Departure_place</th>
-                                                <th>Arrival_Place</th>
-                                                <th>Departure_Time</th>
-                                                <th>Arrival_Time</th>
-                                                <th>Transit_Time</th>
-                                                <th>Is_Complementary_Food</th>
-                                                <th>Baggage_Allowance</th>
+                                                <th>Trip Type</th>
+                                                <th>From</th>
+                                                <th>To</th>
+                                                <th>Departure Time</th>
+                                                <th>Arrival Time</th>
+                                                <th>Transit Time</th>
+                                                <th>Complementary  Food</th>
+                                                <th>Baggage Allowance</th>
                                                 <th>Fare</th>
                                                 <th>Action</th>
                                             </tr>
@@ -78,16 +78,16 @@ function Flight() {
 
 
                                                     </td>
-                                                    <td>{d.airline?.class}</td>
-                                                    <td>{d.trip_type}</td>
-                                                    <td>{d.airline?.from}</td>
-                                                    <td>{d.airline?.to}</td>
+                                                    <td>{d.flightprice?.class}</td>
+                                                    <td>{d.flightprice?.trip_type}</td>
+                                                    <td>{d.zone?.name}</td>
+                                                    <td>{d.zone?.name}</td>
                                                     <td>{d.departure_time}</td>
                                                     <td>{d.arrival_time}</td>
                                                     <td>{d.transit_time}</td>
                                                     <td>{d.is_complementary_food}</td>
                                                     <td>{d.baggage_allowance}</td>
-                                                    <td>{d.fare}</td>
+                                                    <td>{d.flightprice?.fare}</td>
 
                                                     <td>
                                                         <Link to={`/flight/edit/${d.id}`} className='btn btn-secondary' >Edit</Link>
