@@ -6,21 +6,27 @@ import { useParams } from "react-router-dom";
 
 function VehicleAdd() {
     const [inputs, setInputs] = useState({
-        id: '', name: '', vehicle_code: '', detail: '', is_ac: '', size: '',
+        id: '', transport_id: '', name: '', vehicle_code: '', detail: '', is_ac: '', size: '', fare: '',
     });
+    const [transport, setTransport] = useState([]);
+
     const navigate = useNavigate();
     const { id } = useParams();
 
-    function getDatas() {
-        axios.get(`${process.env.REACT_APP_API_URL}/vehicle/${id}`).then(function (response) {
-            setInputs(response.data.data);
-        });
+    const getDatas = async (e) => {
+        let response = await axios.get(`/vehicle/${id}`);
+        setInputs(response.data.data);
+    }
+    const getRelational = async (e) => {
+        let transportres = await axios.get(`/transport`)
+        setTransport(transportres.data.data);
     }
 
     useEffect(() => {
         if (id) {
             getDatas();
         }
+        getRelational()
     }, []);
 
     const handleChange = (event) => {
@@ -31,22 +37,22 @@ function VehicleAdd() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(inputs)
+
+        const formData = new FormData();
+
+        for (const property in inputs) {
+            formData.append(property, inputs[property])
+        }
 
         try {
             let apiurl = '';
             if (inputs.id != '') {
-                apiurl = `/vehicle/${inputs.id}`;
+                apiurl = `/vehicle/edit/${inputs.id}`;
             } else {
                 apiurl = `/vehicle/create`;
             }
-
-            let response = await axios({
-                method: 'post',
-                responsiveTYpe: 'json',
-                url: `${process.env.REACT_APP_API_URL}${apiurl}`,
-                data: inputs
-            });
+            let res = await axios.post(apiurl, formData)
+            console.log(res);
             navigate('/vehicle')
         }
         catch (e) {
@@ -81,6 +87,20 @@ function VehicleAdd() {
                                         <form className="form form-vertical" onSubmit={handleSubmit}>
                                             <div className="form-body">
                                                 <div className="row">
+
+                                                    <div className="col-12">
+                                                        <div className="form-group">
+                                                            <label for="email-id-vertical">Transport</label>
+                                                            {transport.length > 0 &&
+                                                                <select className="form-control" id="transport_id" name='transport_id' defaultValue={inputs.transport_id} onChange={handleChange}>
+                                                                    <option value="">Select Transport</option>
+                                                                    {transport.map((d, key) =>
+                                                                        <option value={d.id}>{d.name}</option>
+                                                                    )}
+                                                                </select>
+                                                            }
+                                                        </div>
+                                                    </div>
                                                     <div className="col-12">
                                                         <div className="form-group">
                                                             <label for="first-name-vertical">Name</label>

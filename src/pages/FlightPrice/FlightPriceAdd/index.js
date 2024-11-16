@@ -95,7 +95,7 @@ function FlightpriceAdd() {
                                                                 <select className="form-control" id="hotel_id" name='hotel_id' defaultValue={inputs.hotel_id} onChange={handleChange}>
                                                                     <option value="">Select Flight</option>
                                                                     {flight.map((d, key) =>
-                                                                        <option value={d.id}>{d?.flight?.airline.name}</option>
+                                                                        <option value={d.id}>Airline- {d.airline.name}, Time: {d.departure_time} - {d.arrival_time} Transit - {d.transit_time}</option>
                                                                     )}
                                                                 </select>
                                                             }

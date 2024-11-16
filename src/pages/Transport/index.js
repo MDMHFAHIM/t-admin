@@ -50,6 +50,7 @@ function Transport() {
                                     <table className="table table-bordered mb-0">
                                         <thead>
                                             <tr>
+                                                <th>Name</th>
                                                 <th>Country</th>
                                                 <th>State</th>
                                                 <th>Image</th>

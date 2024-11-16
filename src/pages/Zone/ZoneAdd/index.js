@@ -111,8 +111,8 @@ function ZoneAdd() {
                                                             {state.length > 0 &&
                                                                 <select className="form-control" id="state_id" name='state_id' defaultValue={inputs.state_id} onChange={handleChange}>
                                                                     <option value="">Select State</option>
-                                                                    {country.map((d, key) =>
-                                                                        <option value={d.id}>{d.name}</option>
+                                                                    {state.map((d, key) =>
+                                                                        <option value={d.id}>{d?.country_id?.name}</option>
                                                                     )}
                                                                 </select>
                                                             }

@@ -6,11 +6,10 @@ import { useParams } from "react-router-dom";
 
 function FlightAdd() {
     const [inputs, setInputs] = useState({
-        id: '', airline_id: '', image: '', flightprice_id: '', zone_id: '', departure_time: '', arrival_time: '', transit_time: '', is_complementary_food: '', baggage_allowance: '',
+        id: '', airline_id: '', image: '', departure_zone: '', arrival_zone: '', departure_time: '', arrival_time: '', transit_time: '', is_complementary_food: '', baggage_allowance: '',
     });
     const [airline, setAirline] = useState([]);
     const [zone, setZone] = useState([]);
-    const [flightprice, setFlightprice] = useState([]);
     const [selectedfile, setSelectedFile] = useState([]);//for image 
 
     const navigate = useNavigate();
@@ -26,9 +25,6 @@ function FlightAdd() {
 
         let zoneres = await axios.get(`/zone`)
         setZone(zoneres.data.data);
-
-        let flightpriceres = await axios.get(`/flightpriceres`)
-        setFlightprice(flightpriceres.data.data);
 
     }
 
@@ -123,39 +119,12 @@ function FlightAdd() {
                                                             <input type="file" id="email-id-vertical" className="form-control" multiple defaultValue={inputs.image} name="image" onChange={handelFile} placeholder="Image" />
                                                         </div>
                                                     </div>
-                                                    <div className="col-12">
-                                                        <div className="form-group">
-                                                            <label for="email-id-vertical">Class</label>
-                                                            {flightprice.length > 0 &&
-                                                                <select className="form-control" id="zone_id" name='zone_id' defaultValue={inputs.zone_id} onChange={handleChange}>
-                                                                    <option value="">Select Class</option>
-                                                                    {flightprice.map((d, key) =>
-                                                                        <option value={d.id}>{d.class}</option>
-                                                                    )}
-                                                                </select>
-                                                            }
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="col-12">
-                                                        <div className="form-group">
-                                                            <label for="email-id-vertical">Trip Type</label>
-                                                            {flightprice.length > 0 &&
-                                                                <select className="form-control" id="zone_id" name='zone_id' defaultValue={inputs.zone_id} onChange={handleChange}>
-                                                                    <option value="">Select Trip</option>
-                                                                    {flightprice.map((d, key) =>
-                                                                        <option value={d.id}>{d.triptype}</option>
-                                                                    )}
-                                                                </select>
-                                                            }
-                                                        </div>
-                                                    </div>
 
                                                     <div className="col-12">
                                                         <div className="form-group">
                                                             <label for="email-id-vertical">From</label>
                                                             {zone.length > 0 &&
-                                                                <select className="form-control" id="zone_id" name='zone_id' defaultValue={inputs.zone_id} onChange={handleChange}>
+                                                                <select className="form-control" id="departure_zone" name='departure_zone' defaultValue={inputs.departure_zone} onChange={handleChange}>
                                                                     <option value="">Select Departure</option>
                                                                     {zone.map((d, key) =>
                                                                         <option value={d.id}>{d.name}</option>
@@ -167,9 +136,9 @@ function FlightAdd() {
 
                                                     <div className="col-12">
                                                         <div className="form-group">
-                                                            <label for="email-id-vertical">To</label>
+                                                            <label for="arrival_zone">To</label>
                                                             {zone.length > 0 &&
-                                                                <select className="form-control" id="zone_id" name='zone_id' defaultValue={inputs.zone_id} onChange={handleChange}>
+                                                                <select className="form-control" id="arrival_zone" name='arrival_zone' defaultValue={inputs.arrival_zone} onChange={handleChange}>
                                                                     <option value="">Select Arrival</option>
                                                                     {zone.map((d, key) =>
                                                                         <option value={d.id}>{d.name}</option>
@@ -211,14 +180,6 @@ function FlightAdd() {
                                                         <div className="form-group">
                                                             <label for="email-id-vertical">Baggage_Allowance</label>
                                                             <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.baggage_allowance} name="baggage_allowance" onChange={handleChange} placeholder="Baggage_Allowance" />
-
-                                                            <div className="col-12">
-                                                                <div className="form-group">
-                                                                    <label for="email-id-vertical">Fare</label>
-                                                                    <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.fare} name="fare" onChange={handleChange} placeholder="Fare" />
-                                                                </div>
-                                                            </div>
-
 
                                                             <div className="col-12 d-flex justify-content-end">
                                                                 <button type="submit" className="btn btn-primary mr-1 mb-1">Submit</button>

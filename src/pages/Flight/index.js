@@ -80,8 +80,8 @@ function Flight() {
                                                     </td>
                                                     <td>{d.flightprice?.class}</td>
                                                     <td>{d.flightprice?.trip_type}</td>
-                                                    <td>{d.zone?.name}</td>
-                                                    <td>{d.zone?.name}</td>
+                                                    <td>{d.departure?.name}</td>
+                                                    <td>{d.arrival?.name}</td>
                                                     <td>{d.departure_time}</td>
                                                     <td>{d.arrival_time}</td>
                                                     <td>{d.transit_time}</td>

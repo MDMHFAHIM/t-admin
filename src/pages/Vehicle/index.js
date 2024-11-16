@@ -50,22 +50,26 @@ function Vehicle() {
                                     <table className="table table-bordered mb-0">
                                         <thead>
                                             <tr>
+                                                <th>Transport</th>
                                                 <th>Name</th>
-                                                <th>Vehicle_Code</th>
+                                                <th>Vehicle Code</th>
                                                 <th>Delail</th>
-                                                <th>Is_AC</th>
+                                                <th>AC</th>
                                                 <th>Size</th>
+                                                <th>fare</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {data && data.map((d, key) =>
                                                 <tr key={d.id}>
+                                                    <td>{d.transport_id}</td>
                                                     <td className="text-bold-500">{d.name}</td>
                                                     <td>{d.vehicle_code}</td>
                                                     <td>{d.detail}</td>
                                                     <td>{d.is_ac}</td>
                                                     <td>{d.size}</td>
+                                                    <td>{d.fare}</td>
                                                     <td>
                                                         <Link to={`/vehicle/edit/${d.id}`} className='btn btn-secondary' >Edit</Link>
                                                         <button type='button' onClick={() => deleteData(d.id)} className='btn btn-warning'>Delete</button>
