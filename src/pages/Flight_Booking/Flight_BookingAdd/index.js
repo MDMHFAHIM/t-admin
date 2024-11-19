@@ -45,7 +45,7 @@ function Flight_BookingAdd() {
     }
     const TotalPrice = async (e) => {
         let number_of_seat = document.getElementById('number_of_seat').value;
-        let flightprice_id = document.getElementById('flightprice_id').value;
+        let flightprice_id = document.getElementById('flightprice_id')?.value;
         if (flightprice_id) {
             let price = flightPrice.find(data => data.id == flightprice_id)?.airfare;
             setInputs(values => ({ ...values, ['total_amount']: price * number_of_seat }));

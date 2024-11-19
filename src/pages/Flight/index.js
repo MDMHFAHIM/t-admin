@@ -52,8 +52,6 @@ function Flight() {
                                             <tr>
                                                 <th>Airline</th>
                                                 <th>Image</th>
-                                                <th>Class</th>
-                                                <th>Trip Type</th>
                                                 <th>From</th>
                                                 <th>To</th>
                                                 <th>Departure Time</th>
@@ -78,8 +76,6 @@ function Flight() {
 
 
                                                     </td>
-                                                    <td>{d.flightprice?.class}</td>
-                                                    <td>{d.flightprice?.trip_type}</td>
                                                     <td>{d.departure?.name}</td>
                                                     <td>{d.arrival?.name}</td>
                                                     <td>{d.departure_time}</td>

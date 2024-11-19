@@ -126,12 +126,6 @@ function PackageAdd() {
                                                         </div>
                                                     </div>
 
-                                                    <div className="col-12">
-                                                        <div className="form-group">
-                                                            <label for="email-id-vertical">Fare</label>
-                                                            <input type="time" id="email-id-vertical" className="form-control" defaultValue={inputs.fare} name="fare" onChange={handleChange} placeholder="Fare" />
-                                                        </div>
-                                                    </div>
 
                                                     <div className="col-12 d-flex justify-content-end">
                                                         <button type="submit" className="btn btn-primary mr-1 mb-1">Submit</button>

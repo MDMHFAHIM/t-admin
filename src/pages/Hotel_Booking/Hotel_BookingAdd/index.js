@@ -28,26 +28,26 @@ function Hotel_BookingAdd() {
         setHotel(catagories.data.data);
     }
 
-    const getRoomType= async (e) => {
+    const getRoomType = async (e) => {
         let roomtyperes = await axios.get(`/roomtype?hotel_id=${e.target.value}`)
         setRoomtype(roomtyperes.data.data);
     }
 
-    const getRoomFare= async (e) => {
+    const getRoomFare = async (e) => {
         let r = await axios.get(`/roomtype/${e.target.value}`)
         setRoomfare(r.data.data?.roomfare);
     }
 
-    const calRoomFare= async (e) => {
-        let number_of_room=document.getElementById('number_of_room').value
-        let check_in_date=document.getElementById('check_in_date').value
-        let check_out_date=document.getElementById('check_out_date').value
+    const calRoomFare = async (e) => {
+        let number_of_room = document.getElementById('number_of_room').value
+        let check_in_date = document.getElementById('check_in_date').value
+        let check_out_date = document.getElementById('check_out_date').value
         var date1 = new Date(check_in_date);
         var date2 = new Date(check_out_date);
         var diff = new Date(date2.getTime() - date1.getTime());
-        let numberofday=diff.getUTCDate() - 1;
+        let numberofday = diff.getUTCDate() - 1;
 
-        let totalfare= parseFloat(roomfare)* (parseFloat(number_of_room) * numberofday);
+        let totalfare = parseFloat(roomfare) * (parseFloat(number_of_room) * numberofday);
         setInputs(values => ({ ...values, ['total_amount']: totalfare }));
     }
 
@@ -133,7 +133,7 @@ function Hotel_BookingAdd() {
                                                         <div className="form-group">
                                                             <label for="email-id-vertical">Hotel</label>
                                                             {hotel.length > 0 &&
-                                                                <select className="form-control" id="hotel_id" name='hotel_id' defaultValue={inputs.hotel_id} onChange={e => { handleChange(e); getRoomType(e)}}>
+                                                                <select className="form-control" id="hotel_id" name='hotel_id' defaultValue={inputs.hotel_id} onChange={e => { handleChange(e); getRoomType(e) }}>
                                                                     <option value="">Select Hotel</option>
                                                                     {hotel.map((d, key) =>
                                                                         <option value={d.id}>{d.hotel_name}</option>
@@ -147,7 +147,7 @@ function Hotel_BookingAdd() {
                                                         <div className="form-group">
                                                             <label for="email-id-vertical">Roomtype</label>
                                                             {roomtype.length > 0 &&
-                                                                <select className="form-control" id="roomtype_id" name='roomtype_id' defaultValue={inputs.roomtype_id} onChange={e => { handleChange(e); getRoomFare(e)}}>
+                                                                <select className="form-control" id="roomtype_id" name='roomtype_id' defaultValue={inputs.roomtype_id} onChange={e => { handleChange(e); getRoomFare(e) }}>
                                                                     <option value="">Select Roomtype</option>
                                                                     {roomtype.map((d, key) =>
                                                                         <option value={d.id}>{d.bedtype}</option>
@@ -160,7 +160,7 @@ function Hotel_BookingAdd() {
                                                     <div className="col-12">
                                                         <div className="form-group">
                                                             <label for="number_of_room">number_of_room</label>
-                                                            <input type="text" id="number_of_room" className="form-control" defaultValue={inputs.number_of_room} name="number_of_room" onChange={e => { handleChange(e); calRoomFare(e)}} placeholder="number_of_room" />
+                                                            <input type="text" id="number_of_room" className="form-control" defaultValue={inputs.number_of_room} name="number_of_room" onChange={e => { handleChange(e); calRoomFare(e) }} placeholder="number_of_room" />
                                                         </div>
                                                     </div>
 
@@ -181,14 +181,14 @@ function Hotel_BookingAdd() {
                                                     <div className="col-12">
                                                         <div className="form-group">
                                                             <label for="check_in_date">Check_In_Date</label>
-                                                            <input type="date" id="check_in_date" className="form-control" defaultValue={inputs.check_in_date} name="check_in_date" onChange={e => { handleChange(e); calRoomFare(e)}} placeholder="Check_In_Date" />
+                                                            <input type="date" id="check_in_date" className="form-control" defaultValue={inputs.check_in_date} name="check_in_date" onChange={e => { handleChange(e); calRoomFare(e) }} placeholder="Check_In_Date" />
                                                         </div>
                                                     </div>
 
                                                     <div className="col-12">
                                                         <div className="form-group">
                                                             <label for="check_out_date">Check_Out_Date</label>
-                                                            <input type="date" id="check_out_date" className="form-control" defaultValue={inputs.check_out_date} name="check_out_date" onChange={e => { handleChange(e); calRoomFare(e)}} placeholder="Check_Out_Date" />
+                                                            <input type="date" id="check_out_date" className="form-control" defaultValue={inputs.check_out_date} name="check_out_date" onChange={e => { handleChange(e); calRoomFare(e) }} placeholder="Check_Out_Date" />
                                                         </div>
                                                     </div>
 
@@ -201,6 +201,7 @@ function Hotel_BookingAdd() {
                                                     <div className="col-12 d-flex justify-content-end">
                                                         <button type="submit" className="btn btn-primary mr-1 mb-1">Submit</button>
                                                         <button type="reset" className="btn btn-light-secondary mr-1 mb-1">Reset</button>
+
                                                     </div>
                                                 </div>
                                             </div>

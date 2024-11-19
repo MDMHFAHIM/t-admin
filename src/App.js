@@ -11,6 +11,7 @@ import Package_Booking from './pages/Package_Booking';
 import Package_BookingAdd from './pages/Package_Booking/Package_BookingAdd';
 import Hotel from './pages/Hotel';
 import HotelAdd from './pages/Hotel/HotelAdd';
+import HotelInvoice from './pages/HotelInvoice';
 import Hotel_Booking from './pages/Hotel_Booking';
 import Hotel_BookingAdd from './pages/Hotel_Booking/Hotel_BookingAdd';
 import Flight from './pages/Flight';
@@ -41,6 +42,7 @@ import VehicleAdd from './pages/Vehicle/VehicleAdd';
 
 
 import Protected from './components/protected';
+
 
 function App() {
   const isSignedIn = localStorage.getItem("access_token") || false;
@@ -112,6 +114,11 @@ function App() {
         <Route path={"/hotel/edit/:id"} element={
           <Protected isSignedIn={isSignedIn} >
             <HotelAdd />
+          </Protected>
+        } />
+        <Route path={"/hotelinvoice"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <HotelInvoice />
           </Protected>
         } />
         <Route path={"/hotel_booking"} element={

@@ -65,8 +65,8 @@ function Flight_Booking() {
                                             {data && data.map((d, key) =>
                                                 <tr key={d.id}>
                                                     <td>{d.customer?.name}</td>
-                                                    <td>{d.zone?.name}</td>
-                                                    <td>{d.zone?.name}</td>
+                                                    <td>{d.departure_zone?.name}</td>
+                                                    <td>{d.arrival_zone?.name}</td>
                                                     <td>{d.flight?.name}</td>
                                                     <td>{d.number_of_seat}</td>
                                                     <td>{d.check_in_date}</td>
@@ -75,6 +75,7 @@ function Flight_Booking() {
                                                     <td>
                                                         <Link to={`/flight_booking/edit/${d.id}`} className='btn btn-secondary' >Edit</Link>
                                                         <button type='button' onClick={() => deleteData(d.id)} className='btn btn-warning'>Delete</button>
+                                                        <button type='button' className='btn btn-primary'>Invoice</button>
                                                     </td>
                                                 </tr>
                                             )}

@@ -54,15 +54,15 @@ function Hotel() {
                                                 <th>Catagory</th>
                                                 <th>Roomtype</th>
                                                 <th>Image</th>
-                                                <th>Hotel_Name</th>
+                                                <th>Hotel</th>
                                                 <th>Rating</th>
-                                                <th>Is_Complementary_Breakfast</th>
+                                                <th>Complementary Breakfast</th>
                                                 <th>Latitude</th>
                                                 <th>Longitude</th>
-                                                <th>Hotel_details</th>
+                                                <th>Hotel Details</th>
                                                 <th>Facilities</th>
-                                                <th>Checkin</th>
-                                                <th>Checkout</th>
+                                                <th>Check in</th>
+                                                <th>Check out</th>
                                                 <th>Fare</th>
                                                 <th>Action</th>
                                             </tr>

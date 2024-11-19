@@ -3,7 +3,7 @@ import axios from '../../components/axios';
 import AdminLayout from '../../layouts/AdminLayout';
 import { Link } from 'react-router-dom';
 
-function Hotel() {
+function Hotel_Booking() {
     const [data, setData] = useState([]);
     useEffect(() => {
         getDatas();
@@ -50,15 +50,15 @@ function Hotel() {
                                     <table className="table table-bordered mb-0">
                                         <thead>
                                             <tr>
-                                                <th>Customer_Id</th>
-                                                <th>Hotel_Id</th>
-                                                <th>Roomtype_Id</th>
-                                                <th>number_of_room</th>
-                                                <th>number_of_guest_adult</th>
-                                                <th>number_of_guest_child</th>
-                                                <th>check_in_date</th>
-                                                <th>check_out_date</th>
-                                                <th>total_amount</th>
+                                                <th>Customer</th>
+                                                <th>Hotel</th>
+                                                <th>Roomtype</th>
+                                                <th>Number Of Room</th>
+                                                <th>Number Of Guest Adult</th>
+                                                <th>Number Of Guest Child</th>
+                                                <th>Check In Date</th>
+                                                <th>Check Out Date</th>
+                                                <th>Total Amount</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -78,6 +78,8 @@ function Hotel() {
                                                     <td>
                                                         <Link to={`/hotel_booking/edit/${d.id}`} className='btn btn-secondary' >Edit</Link>
                                                         <button type='button' onClick={() => deleteData(d.id)} className='btn btn-warning'>Delete</button>
+                                                        <button type='button' className='btn btn-primary'>Invoice</button>
+
                                                     </td>
                                                 </tr>
                                             )}
@@ -94,4 +96,4 @@ function Hotel() {
     )
 }
 
-export default Hotel
+export default Hotel_Booking
