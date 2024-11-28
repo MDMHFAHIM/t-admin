@@ -4,25 +4,25 @@ import AdminLayout from '../../../layouts/AdminLayout';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 
-function Package_BookingAdd() {
-    const [inputs, setInputs] = useState({ id: '', customer_id: '', package_id: '', duration: '', person: '', number_of_guest_adult: '', number_of_guest_child: '', check_in_date: '', check_out_date: '', fare: '', });
+function Transport_BookingAdd() {
+    const [inputs, setInputs] = useState({ id: '', customer_id: '', transport_id: '', person: '', number_of_guest_adult: '', number_of_guest_child: '', check_in_date: '', check_out_date: '', fare: '', });
 
     const [customer, setCustomer] = useState([]);
-    const [packge, setPackge] = useState([]);
+    const [transport, setTransport] = useState([]);
 
 
     const navigate = useNavigate();
     const { id } = useParams();
 
     const getDatas = async (e) => {
-        let response = await axios.get(`/package_booking/${id}`);
+        let response = await axios.get(`/transport_booking/${id}`);
         setInputs(response.data.data);
     }
     const getRelational = async (e) => {
         let customerres = await axios.get(`/customer`)
         setCustomer(customerres.data.data);
-        let packageres = await axios.get(`/package`)
-        setPackge(packageres.data.data);
+        let transportres = await axios.get(`/transport`)
+        setTransport(transportres.data.data);
     }
 
     useEffect(() => {
@@ -50,13 +50,13 @@ function Package_BookingAdd() {
         try {
             let apiurl = '';
             if (inputs.id != '') {
-                apiurl = `/package_booking/edit/${inputs.id}`;
+                apiurl = `/transport_booking/edit/${inputs.id}`;
             } else {
-                apiurl = `/package_booking/create`;
+                apiurl = `/transport_booking/create`;
             }
             let res = await axios.post(apiurl, formData)
             console.log(res);
-            navigate('/package_booking')
+            navigate('/transport_booking')
         }
         catch (e) {
             console.log(e);
@@ -68,12 +68,12 @@ function Package_BookingAdd() {
                 <div className="page-title">
                     <div className="row">
                         <div className="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Add New Package_Booking</h3>
+                            <h3>Add New Transport Booking</h3>
                         </div>
                         <div className="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" className='breadcrumb-header'>
                                 <ol className="breadcrumb">
-                                    <li className="breadcrumb-item"><a href="index.html">Package_Booking</a></li>
+                                    <li className="breadcrumb-item"><a href="index.html">Transport Booking</a></li>
                                     <li className="breadcrumb-item active" aria-current="page">List</li>
                                 </ol>
                             </nav>
@@ -106,11 +106,11 @@ function Package_BookingAdd() {
                                                     </div>
                                                     <div className="col-12">
                                                         <div className="form-group">
-                                                            <label for="email-id-vertical">Package</label>
-                                                            {packge.length > 0 &&
+                                                            <label for="email-id-vertical">Transport</label>
+                                                            {transport.length > 0 &&
                                                                 <select className="form-control" id="package_id" name='package_id' defaultValue={inputs.package_id} onChange={handleChange}>
-                                                                    <option value="">Select Package</option>
-                                                                    {packge.map((d, key) =>
+                                                                    <option value="">Select Transport</option>
+                                                                    {transport.map((d, key) =>
                                                                         <option value={d.id}>{d.name}</option>
                                                                     )}
                                                                 </select>
@@ -181,4 +181,4 @@ function Package_BookingAdd() {
     )
 }
 
-export default Package_BookingAdd
+export default Transport_BookingAdd

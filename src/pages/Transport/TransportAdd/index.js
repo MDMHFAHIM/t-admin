@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 
 function TransportAdd() {
     const [inputs, setInputs] = useState({
-        id: '', country: '', state: '', image: '', schedule: '', departure_time: '', arrival_time: '', vehicle_id: '', fare: '',
+        id: '', vehicle: '', image: '', departure_time: '', arrival_time: '', location: '', fare: '',
 
     });
 
@@ -100,28 +100,18 @@ function TransportAdd() {
                                                 <div className="row">
                                                     <div className="col-12">
                                                         <div className="form-group">
-                                                            <label for="first-name-vertical">Country</label>
-                                                            <input type="text" id="first-name-vertical" className="form-control" defaultValue={inputs.country} name="country" onChange={handleChange} placeholder="Country" />
+                                                            <label for="first-name-vertical">Vehicle</label>
+                                                            <input type="text" id="first-name-vertical" className="form-control" defaultValue={inputs.vehicle} name="vehicle" onChange={handleChange} placeholder="Vehicle" />
                                                         </div>
                                                     </div>
-                                                    <div className="col-12">
-                                                        <div className="form-group">
-                                                            <label for="email-id-vertical">State</label>
-                                                            <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.state} name="state" onChange={handleChange} placeholder="State" />
-                                                        </div>
-                                                    </div>
+
                                                     <div className="col-12">
                                                         <div className="form-group">
                                                             <label for="email-id-vertical">Image</label>
                                                             <input type="file" id="email-id-vertical" className="form-control" multiple defaultValue={inputs.image} name="image" onChange={handelFile} placeholder="Image" />
                                                         </div>
                                                     </div>
-                                                    <div className="col-12">
-                                                        <div className="form-group">
-                                                            <label for="email-id-vertical">Schedule</label>
-                                                            <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.schedule} name="schedule" onChange={handleChange} placeholder="Schedule" />
-                                                        </div>
-                                                    </div>
+
                                                     <div className="col-12">
                                                         <div className="form-group">
                                                             <label for="email-id-vertical">Departure_Time</label>
@@ -137,22 +127,15 @@ function TransportAdd() {
 
                                                     <div className="col-12">
                                                         <div className="form-group">
-                                                            <label for="email-id-vertical">Vehicle_Id</label>
-                                                            {vehicle.length > 0 &&
-                                                                <select className="form-control" id="vehicle_id" name='vehicle_id' defaultValue={inputs.vehicle_id} onChange={handleChange}>
-                                                                    <option value="">Select Vehicle</option>
-                                                                    {vehicle.map((d, key) =>
-                                                                        <option value={d.id}>{d.name}</option>
-                                                                    )}
-                                                                </select>
-                                                            }
+                                                            <label for="email-id-vertical">Location</label>
+                                                            <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.location} name="location" onChange={handleChange} placeholder="Location" />
                                                         </div>
                                                     </div>
 
                                                     <div className="col-12">
                                                         <div className="form-group">
-                                                            <label for="email-id-vertical">Fare</label>
-                                                            <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.fare} name="fare" onChange={handleChange} placeholder="Fare" />
+                                                            <label for="email-id-vertical">Price</label>
+                                                            <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.price} name="price" onChange={handleChange} placeholder="Price" />
                                                         </div>
                                                     </div>
 

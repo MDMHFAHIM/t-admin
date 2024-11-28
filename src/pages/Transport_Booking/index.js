@@ -3,19 +3,19 @@ import axios from '../../components/axios';
 import AdminLayout from '../../layouts/AdminLayout';
 import { Link } from 'react-router-dom';
 
-function Package() {
+function Transport_Booking() {
     const [data, setData] = useState([]);
     useEffect(() => {
         getDatas();
     }, []);
 
     function getDatas() {
-        axios.get(`${process.env.REACT_APP_API_URL}/package`).then(function (response) {
+        axios.get(`${process.env.REACT_APP_API_URL}/transport_booking`).then(function (response) {
             setData(response.data.data);
         });
     }
     const deleteData = (id) => {
-        axios.delete(`${process.env.REACT_APP_API_URL}/package/${id}`).then(function (response) {
+        axios.delete(`${process.env.REACT_APP_API_URL}/transport_booking/${id}`).then(function (response) {
             getDatas();
         });
     }
@@ -25,12 +25,12 @@ function Package() {
                 <div className="page-title">
                     <div className="row">
                         <div className="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Package</h3>
+                            <h3>Transport Booking</h3>
                         </div>
                         <div className="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" className='breadcrumb-header'>
                                 <ol className="breadcrumb">
-                                    <li className="breadcrumb-item"><a href="index.html">Package</a></li>
+                                    <li className="breadcrumb-item"><a href="index.html">Transport_Booking</a></li>
                                     <li className="breadcrumb-item active" aria-current="page">List</li>
                                 </ol>
                             </nav>
@@ -42,38 +42,38 @@ function Package() {
                     <div className="col-12">
                         <div className="card">
                             <div className="card-header">
-                                <h4 className="card-title">All Package</h4>
-                                <Link to={'/package/add'} className='btn btn-primary float-right' >Add New</Link>
+                                <h4 className="card-title">All Transport Booking</h4>
+                                <Link to={'/transport_booking/add'} className='btn btn-primary float-right' >Add New</Link>
                             </div>
                             <div className="card-content">
                                 <div className="table-responsive">
                                     <table className="table table-bordered mb-0">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Image</th>
-                                                <th>Duration</th>
-                                                <th>Price</th>
-                                                <th>Location</th>
+                                                <th>Customer</th>
+                                                <th>Transport</th>
+                                                <th>Person</th>
+                                                <th>Number Of Guest Adult</th>
+                                                <th>Number Of Guest Child</th>
+                                                <th>Check In Date</th>
+                                                <th>Check Out Date</th>
+                                                <th>Fare</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {data && data.map((d, key) =>
                                                 <tr key={d.id}>
-                                                    <td className="text-bold-500">{d.name}</td>
+                                                    <td className="text-bold-500">{d.customer?.name}</td>
+                                                    <td>{d.transport?.name}</td>
+                                                    <td>{d.person}</td>
+                                                    <td>{d.number_of_guest_adult}</td>
+                                                    <td>{d.number_of_guest_child}</td>
+                                                    <td>{d.check_in_date}</td>
+                                                    <td>{d.check_out_date}</td>
+                                                    <td>{d.fare}</td>
                                                     <td>
-                                                        {
-                                                            d?.image?.split(',').map((src, i) => (
-                                                                <img src={`${process.env.REACT_APP_BACKEND_URL}/package/${src}`} alt="package" />
-                                                            ))
-                                                        }
-                                                    </td>
-                                                    <td>{d.duration}</td>
-                                                    <td>{d.price}</td>
-                                                    <td>{d.location}</td>
-                                                    <td>
-                                                        <Link to={`/package/edit/${d.id}`} className='btn btn-secondary' >Edit</Link>
+                                                        <Link to={`/transport_booking/edit/${d.id}`} className='btn btn-secondary' >Edit</Link>
                                                         <button type='button' onClick={() => deleteData(d.id)} className='btn btn-warning'>Delete</button>
                                                     </td>
                                                 </tr>
@@ -92,4 +92,4 @@ function Package() {
     )
 }
 
-export default Package
+export default Transport_Booking

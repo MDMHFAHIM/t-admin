@@ -114,8 +114,8 @@ function PackageAdd() {
 
                                                     <div className="col-12">
                                                         <div className="form-group">
-                                                            <label for="email-id-vertical">Number_Of_Guest</label>
-                                                            <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.number_of_guest} name="number_of_guest" onChange={handleChange} />
+                                                            <label for="email-id-vertical">Price</label>
+                                                            <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.price} name="price" onChange={handleChange} />
                                                         </div>
                                                     </div>
 

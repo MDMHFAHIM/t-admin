@@ -50,23 +50,19 @@ function Transport() {
                                     <table className="table table-bordered mb-0">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Country</th>
-                                                <th>State</th>
+                                                <th>Vehicle</th>
                                                 <th>Image</th>
-                                                <th>schedule</th>
-                                                <th>Departure_Time</th>
-                                                <th>Arrival_Time</th>
-                                                <th>Vehicle_Id</th>
-                                                <th>Fare</th>
+                                                <th>Departure Time</th>
+                                                <th>Arrival Time</th>
+                                                <th>Location</th>
+                                                <th>Price</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {data && data.map((d, key) =>
                                                 <tr key={d.id}>
-                                                    <td>{d.country}</td>
-                                                    <td>{d.state}</td>
+                                                    <td>{d.vehicle}</td>
                                                     <td>
                                                         {
                                                             d?.image?.split(',').map((src, i) => (
@@ -77,11 +73,10 @@ function Transport() {
 
                                                     </td>
 
-                                                    <td>{d.schedule}</td>
                                                     <td>{d.departure_time}</td>
                                                     <td>{d.arrival_time}</td>
-                                                    <td>{d.vehicle?.name}</td>
-                                                    <td>{d.fare}</td>
+                                                    <td>{d.location}</td>
+                                                    <td>{d.price}</td>
 
                                                     <td>
                                                         <Link to={`/transport/edit/${d.id}`} className='btn btn-secondary' >Edit</Link>

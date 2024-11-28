@@ -22,6 +22,8 @@ import Flight_Booking from './pages/Flight_Booking';
 import Flight_BookingAdd from './pages/Flight_Booking/Flight_BookingAdd';
 import Transport from './pages/Transport';
 import TransportAdd from './pages/Transport/TransportAdd';
+import Transport_Booking from './pages/Transport_Booking';
+import Transport_BookingAdd from './pages/Transport_Booking/Transport_BookingAdd';
 import Subscription from './pages/Subscription';
 import SubscriptionAdd from './pages/Subscription/SubscriptionAdd';
 import Catagory from './pages/Catagory';
@@ -42,6 +44,7 @@ import VehicleAdd from './pages/Vehicle/VehicleAdd';
 
 
 import Protected from './components/protected';
+
 
 
 function App() {
@@ -194,6 +197,22 @@ function App() {
         <Route path={"/transport/edit/:id"} element={
           <Protected isSignedIn={isSignedIn} >
             <TransportAdd />
+          </Protected>
+        } />
+
+        <Route path={"/transport_booking"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <Transport_Booking />
+          </Protected>
+        } />
+        <Route path={"/transport_booking/add"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <Transport_BookingAdd />
+          </Protected>
+        } />
+        <Route path={"/transport_booking/edit/:id"} element={
+          <Protected isSignedIn={isSignedIn} >
+            <Transport_BookingAdd />
           </Protected>
         } />
         <Route path={"/subscription"} element={

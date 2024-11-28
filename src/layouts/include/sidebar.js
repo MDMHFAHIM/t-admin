@@ -105,6 +105,13 @@ function Sidebar() {
 				</li>
 
 				<li className="nav-item">
+					<Link to={"/transport_booking"} className="nav-link" >
+						<i className="fa fa-motorcycle menu-icon"></i>
+						<span className="menu-title">Transport_Booking</span>
+					</Link>
+				</li>
+
+				<li className="nav-item">
 					<Link to={"/subscription"} className="nav-link" >
 						<i className="fa fa-user-check menu-icon"></i>
 						<span className="menu-title">Subscription</span>
