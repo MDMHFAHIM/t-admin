@@ -108,7 +108,7 @@ function Transport_BookingAdd() {
                                                         <div className="form-group">
                                                             <label for="email-id-vertical">Transport</label>
                                                             {transport.length > 0 &&
-                                                                <select className="form-control" id="package_id" name='package_id' defaultValue={inputs.package_id} onChange={handleChange}>
+                                                                <select className="form-control" id="transport_id" name='transport_id' defaultValue={inputs.transport_id} onChange={handleChange}>
                                                                     <option value="">Select Transport</option>
                                                                     {transport.map((d, key) =>
                                                                         <option value={d.id}>{d.name}</option>
@@ -127,19 +127,6 @@ function Transport_BookingAdd() {
                                                         </div>
                                                     </div>
 
-                                                    <div className="col-12">
-                                                        <div className="form-group">
-                                                            <label for="email-id-vertical">Number_Of_Guest_Adult</label>
-                                                            <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.number_of_guest_adult} name="number_of_guest_adult" onChange={handleChange} placeholder="Number_Of_Guest_Adult" />
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="col-12">
-                                                        <div className="form-group">
-                                                            <label for="email-id-vertical">Number_Of_Guest_Child</label>
-                                                            <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.number_of_guest_child} name="number_of_guest_child" onChange={handleChange} placeholder="Number_Of_Guest_Child" />
-                                                        </div>
-                                                    </div>
 
                                                     <div className="col-12">
                                                         <div className="form-group">

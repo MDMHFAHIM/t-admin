@@ -56,7 +56,6 @@ function Package_Booking() {
                                                 <th>Number Of Guest Adult</th>
                                                 <th>Number Of Guest Child</th>
                                                 <th>Check In Date</th>
-                                                <th>Check Out Date</th>
                                                 <th>Fare</th>
                                                 <th>Action</th>
                                             </tr>
@@ -70,7 +69,6 @@ function Package_Booking() {
                                                     <td>{d.number_of_guest_adult}</td>
                                                     <td>{d.number_of_guest_child}</td>
                                                     <td>{d.check_in_date}</td>
-                                                    <td>{d.check_out_date}</td>
                                                     <td>{d.fare}</td>
                                                     <td>
                                                         <Link to={`/package_booking/edit/${d.id}`} className='btn btn-secondary' >Edit</Link>

@@ -148,12 +148,7 @@ function Package_BookingAdd() {
                                                         </div>
                                                     </div>
 
-                                                    <div className="col-12">
-                                                        <div className="form-group">
-                                                            <label for="email-id-vertical">Check_Out_Date</label>
-                                                            <input type="date" id="email-id-vertical" className="form-control" defaultValue={inputs.check_out_date} name="check_out_date" onChange={handleChange} placeholder="Check_Out_Date" />
-                                                        </div>
-                                                    </div>
+
 
                                                     <div className="col-12">
                                                         <div className="form-group">

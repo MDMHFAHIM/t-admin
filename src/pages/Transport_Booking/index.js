@@ -53,8 +53,6 @@ function Transport_Booking() {
                                                 <th>Customer</th>
                                                 <th>Transport</th>
                                                 <th>Person</th>
-                                                <th>Number Of Guest Adult</th>
-                                                <th>Number Of Guest Child</th>
                                                 <th>Check In Date</th>
                                                 <th>Check Out Date</th>
                                                 <th>Fare</th>
@@ -67,8 +65,6 @@ function Transport_Booking() {
                                                     <td className="text-bold-500">{d.customer?.name}</td>
                                                     <td>{d.transport?.name}</td>
                                                     <td>{d.person}</td>
-                                                    <td>{d.number_of_guest_adult}</td>
-                                                    <td>{d.number_of_guest_child}</td>
                                                     <td>{d.check_in_date}</td>
                                                     <td>{d.check_out_date}</td>
                                                     <td>{d.fare}</td>
