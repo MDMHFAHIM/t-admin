@@ -25,12 +25,12 @@ function Hotel_Booking() {
                 <div className="page-title">
                     <div className="row">
                         <div className="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Hotel</h3>
+                            <h3>Hotel Booking</h3>
                         </div>
                         <div className="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" className='breadcrumb-header'>
                                 <ol className="breadcrumb">
-                                    <li className="breadcrumb-item"><a href="index.html">Hotel_Booking</a></li>
+                                    <li className="breadcrumb-item"><a href="index.html">Hotel Booking</a></li>
                                     <li className="breadcrumb-item active" aria-current="page">List</li>
                                 </ol>
                             </nav>
@@ -42,7 +42,7 @@ function Hotel_Booking() {
                     <div className="col-12">
                         <div className="card">
                             <div className="card-header">
-                                <h4 className="card-title">All Hotel</h4>
+                                <h4 className="card-title">All Hotel Booking</h4>
                                 <Link to={'/hotel_booking/add'} className='btn btn-primary float-right' >Add New</Link>
                             </div>
                             <div className="card-content">

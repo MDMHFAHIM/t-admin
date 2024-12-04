@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 
 function Transport_BookingAdd() {
-    const [inputs, setInputs] = useState({ id: '', customer_id: '', transport_id: '', person: '', number_of_guest_adult: '', number_of_guest_child: '', check_in_date: '', check_out_date: '', fare: '', });
+    const [inputs, setInputs] = useState({ id: '', customer_id: '', transport_id: '', person: '', number_of_guest_adult: '', number_of_guest_child: '', check_in_date: '', check_out_date: '', fare: '', total: '', });
 
     const [customer, setCustomer] = useState([]);
     const [transport, setTransport] = useState([]);
@@ -146,6 +146,13 @@ function Transport_BookingAdd() {
                                                         <div className="form-group">
                                                             <label for="email-id-vertical">Fare</label>
                                                             <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.fare} name="fare" onChange={handleChange} placeholder="Fare" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="col-12">
+                                                        <div className="form-group">
+                                                            <label for="email-id-vertical">Total</label>
+                                                            <input type="text" id="email-id-vertical" className="form-control" defaultValue={inputs.total} name="total" onChange={handleChange} placeholder="Total" />
                                                         </div>
                                                     </div>
 

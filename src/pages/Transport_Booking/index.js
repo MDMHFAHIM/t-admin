@@ -56,6 +56,7 @@ function Transport_Booking() {
                                                 <th>Check In Date</th>
                                                 <th>Check Out Date</th>
                                                 <th>Fare</th>
+                                                <th>Total</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -63,11 +64,12 @@ function Transport_Booking() {
                                             {data && data.map((d, key) =>
                                                 <tr key={d.id}>
                                                     <td className="text-bold-500">{d.customer?.name}</td>
-                                                    <td>{d.transport?.name}</td>
+                                                    <td>{d.transport?.vehicle}</td>
                                                     <td>{d.person}</td>
                                                     <td>{d.check_in_date}</td>
                                                     <td>{d.check_out_date}</td>
                                                     <td>{d.fare}</td>
+                                                    <td>{d.total}</td>
                                                     <td>
                                                         <Link to={`/transport_booking/edit/${d.id}`} className='btn btn-secondary' >Edit</Link>
                                                         <button type='button' onClick={() => deleteData(d.id)} className='btn btn-warning'>Delete</button>
